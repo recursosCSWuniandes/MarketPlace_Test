@@ -1,8 +1,11 @@
 
-<div class="container" ng-controller="productCtrl">
+<div class="container">
     <toolbar name="name" display-name="displayName" actions="ctrl.globalActions"></toolbar>
     <h2>Gallery</h2>
-    <p></p>            
+    <p></p>
+    <div ng-show="ctrl.editMode" class="well">
+        <crud-form name="name" model="model" record="currentRecord"></crud-form>
+    </div>
     <div class="row">
         <div ng-repeat="record in records" class="col-md-4">
             <div class="thumbnail" >
@@ -18,7 +21,5 @@
         </div>
     </div>
     <br>
-    <div ng-show="ctrl.editMode" class="well">
-        <crud-form name="name" model="model" record="currentRecord"></crud-form>
-    </div>    
+    <pagination total-items="ctrl.totalItems" ng-model="ctrl.currentPage" ng-change="ctrl.pageChanged()" items-per-page="ctrl.itemsPerPage" max-size="ctrl.maxSize" class="pagination-sm" boundary-links="true" rotate="false"></pagination>
 </div>
