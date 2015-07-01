@@ -1,0 +1,7 @@
+<div ng-include="'src/shared/crud/crud.tpl.html'"></div>
+<div id="childs" ng-show="ctrl.editMode">
+    <ul class="nav nav-tabs">
+        <li role="presentation" ng-class="{active: tab === 'item'}"><a href ng-click="ctrl.changeTab('item')">Item</a></li>
+    </ul>
+    <div ng-show="tab === 'item'" ng-controller="itemCtrl as ctrl"ng-include="'src/shared/crud/crud.tpl.html'"></div>
+</div>
