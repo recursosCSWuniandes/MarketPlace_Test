@@ -6,7 +6,7 @@
             this.fetchRecords();
         }]);
 
-    mod.controller('itemCtrl', ['masterUtils', '$scope', 'itemModel', function (masterSvc, $scope, model) {
+    mod.controller('itemChildCtrl', ['masterUtils', '$scope', 'itemModel', function (masterSvc, $scope, model) {
             masterSvc.extendCompChildCtrl(this, $scope, model, 'item', 'shoppingCart');
         }]);
 })(window.angular);

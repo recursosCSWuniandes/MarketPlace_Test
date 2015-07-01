@@ -5,6 +5,7 @@ import java.io.Serializable;
 import javax.persistence.Id;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Entity;
+import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 
 /**
@@ -20,6 +21,7 @@ public class ItemEntity implements Serializable {
     private String name;
 
     @ManyToOne
+    @JoinColumn(nullable=false)
     private ProductEntity product;
     @ManyToOne
     private ShoppingCartEntity shoppingCart;

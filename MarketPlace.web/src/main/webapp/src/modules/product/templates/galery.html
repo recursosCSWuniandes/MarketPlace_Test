@@ -1,5 +1,5 @@
 
-<div class="container">
+<div>
     <toolbar name="name" display-name="displayName" actions="ctrl.globalActions"></toolbar>
     <h2>Gallery</h2>
     <p></p>
@@ -10,13 +10,13 @@
         <div ng-repeat="record in records" class="col-md-4">
             <div class="thumbnail" >
                 <a href="{{record.image}}">               
-                    <img class="img-responsive" src="{{record.image}}" alt="" style="width:150px;height:150px">
+                    <img class="img-responsive" ng-src="{{record.image}}" alt="" style="width:150px;height:150px">
                 </a>
                 <a id="{{$index}}-selected"><input type="checkbox"></a>
                 <p><b>Name:</b> {{record.name}}</p>
                 <p><b>Description:</b> {{record.description}}</p>
                 <p><b>Price:</b> {{record.price}}</p>
-                <button class="btn btn-default" ng-click="addToCar()">Add to Cart</button>
+                <button class="btn btn-default" ng-click="addToCar(record)">Add to Cart</button>
             </div>
         </div>
     </div>
