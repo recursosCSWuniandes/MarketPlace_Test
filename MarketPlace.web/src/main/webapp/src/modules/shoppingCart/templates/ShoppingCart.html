@@ -1,0 +1,29 @@
+
+<div>
+    <!--    <toolbar name="name" display-name="displayName" actions="ctrl.globalActions"></toolbar>-->
+    <div class="col-md-4">
+    <h2>Shopping Cart</h2>
+    </div>
+    <div class="col-md-6" align="right">
+        <img class="img-responsive" align="right" ng-src="http://www.samueldiosdado.com/wp-content/uploads/2012/04/Shopping-cart-ecommerce.png" alt="" style="width:100px;height:100px">
+    </div>
+    <p></p>
+    <div ng-controller="itemCtrl as ctrl">
+        <list-records
+            model="model"
+            records="records"
+            actions="ctrl.recordActions"
+        </list-records>
+    <br>
+    </div>
+    <br>
+    <div class="col-md-5" align="right">
+                         <h1> $ 0.0 </h1>
+                     </div> 
+    <div class="col-md-5" align="right">
+    <button  class="btn btn-primary btn-lg" ng-click="xxx()" popover="Thanks" popover-trigger="mouseenter" popover-placement="bottom"> 
+                     <span class="glyphicon glyphicon-check" aria-hidden="true" ></span> Checkout </button>
+    </div>
+                                     
+    
+</div>

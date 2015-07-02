@@ -34,7 +34,7 @@
                     controllerAs: crudCtrl
                 })
                 .when('/shoppingCart/master', {
-                    templateUrl: 'src/modules/shoppingCart/master/shoppingCart.master.tpl.html',
+                    templateUrl: 'src/modules/shoppingCart/templates/ShoppingCart.html',
                     controller: 'shoppingCartMasterCtrl',
                     controllerAs: crudCtrl
                 })
