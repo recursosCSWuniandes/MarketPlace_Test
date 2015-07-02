@@ -19,6 +19,8 @@ public class ItemEntity implements Serializable {
     private Long id;
 
     private String name;
+    
+    private Integer quantity;
 
     @ManyToOne
     @JoinColumn(nullable=false)
@@ -79,6 +81,14 @@ public class ItemEntity implements Serializable {
      */
     public void setShoppingCart(ShoppingCartEntity shoppingcart) {
         this.shoppingCart = shoppingcart;
+    }
+
+    public Integer getQuantity() {
+        return quantity;
+    }
+
+    public void setQuantity(Integer quantity) {
+        this.quantity = quantity;
     }
 
 }

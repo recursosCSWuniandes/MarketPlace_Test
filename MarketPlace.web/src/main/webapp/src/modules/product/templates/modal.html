@@ -1,0 +1,19 @@
+<div class="modal-header">
+    <h3 class="modal-title">Add to Cart</h3>
+</div>
+<div class="modal-body">
+    <div class="input-group">
+        <span class="input-group-addon" id="basic-addon1">Quantity</span>
+        <input ng-model='item.product' type="number" class="form-control" aria-describedby="basic-addon1">
+    </div>
+    <br>
+    <br>
+    <div class="input-group">
+        <span class="input-group-addon" id="basic-addon1">Name</span>
+        <input ng-model='item.name' type="text" class="form-control" placeholder="Name Item" aria-describedby="basic-addon1">
+    </div>
+</div>
+<div class="modal-footer">
+    <button class="btn btn-primary" ng-click="ok(item.product, currentRecord, item.name)">Add</button>
+    <button class="btn btn-warning" ng-click="cancel()">Cancel</button>
+</div>

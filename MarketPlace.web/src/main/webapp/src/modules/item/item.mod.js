@@ -22,5 +22,10 @@
             service: 'shoppingCartService',
             options: [],
             required: true
+        }, {
+            name: 'quantity',
+            displayName: 'Quantity',
+            type: 'Integer',
+            required: true
         }]);
 })(window.angular);

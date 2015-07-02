@@ -5,13 +5,15 @@ import javax.xml.bind.annotation.XmlRootElement;
 /**
  * @generated
  */
-@XmlRootElement 
+@XmlRootElement
 public class ItemDTO {
 
     private Long id;
     private String name;
+    private Integer quantity;
     private ProductDTO product;
     private ShoppingCartDTO shoppingCart;
+
     /**
      * @generated
      */
@@ -68,4 +70,11 @@ public class ItemDTO {
         this.shoppingCart = shoppingcart;
     }
 
+    public Integer getQuantity() {
+        return quantity;
+    }
+
+    public void setQuantity(Integer quantity) {
+        this.quantity = quantity;
+    }
 }
