@@ -1,7 +1,7 @@
 (function (ng) {
     var mod = ng.module('productModule');
 
-    mod.controller('productCtrl', ['$scope', 'productService', 'productModel', 'itemService', 'shoppingCartService', '$modal', function ($scope, svc, model, svcItem, svcShoppingCart, $modal) {
+    mod.controller('productCtrl', ['$scope', 'productService', 'productModel', 'itemService', 'shoppingCartService', '$modal','$location', function ($scope, svc, model, svcItem, svcShoppingCart, $modal, $location) {
             svc.extendController(this, $scope, model, 'product', 'Product');
             this.fetchRecords(); // Consulta todos los records de la entidad Producto
             this.readOnly = false; // Habilita el uso de solo lectura (No permite crear nuevas entidades en el toolbar)
@@ -17,7 +17,8 @@
             };
 
             this.addToCartList = function () {
-                alert('Added to Cart');
+                alert('Go to Shopping Car');
+                 $location.path('/shoppingCart/master');
             };
 
             this.openModal = function (size) {
@@ -53,7 +54,7 @@
              */
             this.globalActions.push({
                 name: 'AddtoCart',
-                displayName: 'Add to Cart',
+                displayName: 'My Shopping Car',
                 icon: 'shopping-cart',
                 fn: function () {
                     self.addToCartList();
@@ -62,6 +63,8 @@
                     return true;
                 }
             });
+            
+            
         }]);
 
     mod.controller('modalAddCarCtrl', ['$scope', '$modalInstance', 'currentRecord', function ($scope, $modalInstance, currentRecord) {
