@@ -14,15 +14,20 @@
             records="records"
             actions="ctrl.recordActions"
         </list-records>
+        <pagination total-items="ctrl.totalItems" ng-model="ctrl.currentPage" ng-change="ctrl.pageChanged()" items-per-page="ctrl.itemsPerPage" max-size="ctrl.maxSize" class="pagination-sm" boundary-links="true" rotate="false"></pagination>
     <br>
     </div>
     <br>
     <div class="col-md-5" align="right">
                          <h1> $ 0.0 </h1>
                      </div> 
-    <div class="col-md-5" align="right">
+    <div class="col-md-3" align="right">
     <button  class="btn btn-primary btn-lg" ng-click="xxx()" popover="Thanks" popover-trigger="mouseenter" popover-placement="bottom"> 
                      <span class="glyphicon glyphicon-check" aria-hidden="true" ></span> Checkout </button>
+    </div>
+    <div class="col-md-2" align="right">
+    <button  class="btn btn-warning btn-lg" ng-click=""> 
+                     <span class="glyphicon glyphicon-check" aria-hidden="true" ></span> Back Gallery </button>
     </div>
                                      
     
