@@ -12,11 +12,10 @@
                 <a href="{{record.image}}">               
                     <img class="img-responsive" ng-src="{{record.image}}" alt="" style="width:150px;height:150px">
                 </a>
-                <a id="{{$index}}-selected"><input type="checkbox"></a>
                 <p><b>Name:</b> {{record.name}}</p>
                 <p><b>Description:</b> {{record.description}}</p>
                 <p><b>Price:</b> {{record.price}}</p>
-                <button class="btn btn-default" ng-click="addToCar(record)"> 
+                <button class="btn btn-primary" ng-click="addToCar(record)"> 
                      <span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span> Add to Cart</button>
             </div>
         </div>
