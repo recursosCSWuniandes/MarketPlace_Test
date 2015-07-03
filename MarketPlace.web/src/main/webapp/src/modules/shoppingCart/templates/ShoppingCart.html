@@ -12,22 +12,25 @@
             model="model"
             records="records"
             actions="ctrl.recordActions"
-    </list-records>
-    <pagination total-items="ctrl.totalItems" ng-model="ctrl.currentPage" ng-change="ctrl.pageChanged()" items-per-page="ctrl.itemsPerPage" max-size="ctrl.maxSize" class="pagination-sm" boundary-links="true" rotate="false"></pagination>
-    <br>
+    </list-records>    
+    <pagination ng-controller="itemCtrl as ctrl" total-items="ctrl.totalItems" ng-model="ctrl.currentPage" ng-change="ctrl.pageChanged()" items-per-page="ctrl.itemsPerPage" max-size="ctrl.maxSize" class="pagination-sm" boundary-links="true" rotate="false"></pagination>
+    <div ng-controller="itemCtrl as ctrl" ng-show="ctrl.editMode" class="well" >
+        <crud-form name="name" model="model" record="currentRecord"></crud-form>
     </div>
     <br>
-    <div class="col-md-5" align="right">
-        <h1> $ {{total}}</h1>
-    </div> 
-    <div class="col-md-3" align="right">
-        <button  class="btn btn-primary btn-lg" ng-click="xxx()" popover="Thanks" popover-trigger="mouseenter" popover-placement="bottom"> 
-            <span class="glyphicon glyphicon-check" aria-hidden="true" ></span> Checkout </button>
     </div>
-    <div class="col-md-2" align="right">
-        <button  class="btn btn-warning btn-lg" ng-click="goToGallery()"> 
-            <span class="glyphicon glyphicon-check" aria-hidden="true" ></span> Back Gallery </button>
-    </div>
+<br>
+<div class="col-md-5" align="right">
+    <h1> $ {{total}}</h1>
+</div> 
+<div class="col-md-3" align="right">
+    <button  class="btn btn-primary btn-lg" ng-click="xxx()" popover="Thanks" popover-trigger="mouseenter" popover-placement="bottom"> 
+        <span class="glyphicon glyphicon-check" aria-hidden="true" ></span> Checkout </button>
+</div>
+<div class="col-md-2" align="right">
+    <button  class="btn btn-warning btn-lg" ng-click="goToGallery()"> 
+        <span class="glyphicon glyphicon-check" aria-hidden="true" ></span> Back Gallery </button>
+</div>
 
-    
+
 </div>

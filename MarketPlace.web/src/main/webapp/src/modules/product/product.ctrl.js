@@ -17,7 +17,6 @@
             };
 
             this.addToCartList = function () {
-                alert('Go to Shopping Car');
                 $location.path('/shoppingCart/master');
             };
 
@@ -63,7 +62,7 @@
             };
 
             /*
-             * Metodo que agrega una accion al toobar.
+             * Metodo que agrega la accion ir a Carro de compras al toolbar.
              */
             this.globalActions.push({
                 name: 'AddtoCart',
