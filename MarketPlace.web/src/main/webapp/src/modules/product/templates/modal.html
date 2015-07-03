@@ -2,18 +2,22 @@
     <h3 class="modal-title">Add to Cart</h3>
 </div>
 <div class="modal-body">
-    <h2>How products do you want?</h2>
-    <div class="input-group">
-        <span class="input-group-addon" id="basic-addon1">Quantity</span>
-        <input ng-model='item.product' type="number" class="form-control" aria-describedby="basic-addon1">
-        <span class="input-group-addon" id="basic-addon1">Name</span>
-        <input ng-model='item.name' type="text" class="form-control" placeholder="Name Item" aria-describedby="basic-addon1">
+    <h2>How many products do you want?</h2>
+    <div ng-show="ctrl.status" ng-message="show" class="alert alert-{{ctrl.type}}" role="alert">
+        <button type="button" class="close" ng-click="close()" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <strong>{{ctrl.type| uppercase}}:</strong> {{ctrl.msg}}
+    </div>
+    <div class="input-group" >
+        <span class="input-group-addon" id="basic-addon1" >Quantity</span>
+        <input name="quantity" ng-model='item.quantity' type="number" class="form-control" aria-describedby="basic-addon1" ng-required="item.quantity.required">
+        <span class="input-group-addon" id="basic-addon2">Description</span>
+        <input ng-model='item.name' type="text" class="form-control" placeholder="Description" aria-describedby="basic-addon1" required>
     </div>
     <br>
     <br>
-        
+
 </div>
 <div class="modal-footer">
-    <button class="btn btn-primary" ng-click="ok(item.product,item.name)">Add</button>
+    <button class="btn btn-primary" ng-click="ok(item.quantity, item.name)">Add</button>
     <button class="btn btn-warning" ng-click="cancel()">Cancel</button>
 </div>
