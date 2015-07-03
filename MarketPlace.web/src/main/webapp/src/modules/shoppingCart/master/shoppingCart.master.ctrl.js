@@ -1,27 +1,28 @@
 (function (ng) {
     var mod = ng.module('shoppingCartMasterModule');
 
-    mod.controller('shoppingCartMasterCtrl', ['$scope', 'shoppingCartMasterService', 'shoppingCartModel','$location', function ($scope, svc, model,$location) {
+    mod.controller('shoppingCartMasterCtrl', ['$scope', 'shoppingCartMasterService', 'shoppingCartModel', '$location', 'itemService', function ($scope, svc, model, $location, svcItem) {
             svc.extendController(this, $scope, model, 'shoppingCartMaster', 'ShoppingCart Master');
             this.fetchRecords();
+            $scope.total = 0;
             var self = this;
-            this.goToGallery = function(){
+            $scope.goToGallery = function () {
                 $location.path('/product');
             };
             /*
-             * Metodo que agrega una accion al toobar.
+             * Metodo suma.
              */
-            this.globalActions.push({
-                name: 'Gallery',
-                displayName: 'Gallery',
-                icon: 'film',
-                fn: function () {
-                    self.goToGallery();
-                },
-                show: function () {
-                    return true;
-                }
-            });
+            this.calculateTotal = (function () {
+                svcItem.fetchRecords().then(function (data) {
+                    for (var i = 0; i < data.length; i++) {
+                        $scope.total = (data[i].quantity) + $scope.total;
+                    }
+                });
+
+            })();
+
+
+
         }]);
 
     mod.controller('itemChildCtrl', ['masterUtils', '$scope', 'itemModel', function (masterSvc, $scope, model) {

@@ -27,5 +27,13 @@
             displayName: 'Quantity',
             type: 'Integer',
             required: true
-        }]);
+        }, {
+            name: 'subTotal',
+            displayName: 'SubTotal',
+            type: 'Computed',
+            fn: function (record) {
+                return (record.quantity * record.product.id);
+            }
+        }
+    ]);
 })(window.angular);

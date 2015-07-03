@@ -5,5 +5,6 @@
             svc.extendController(this, $scope, model, 'item', 'Item');
             this.loadRefOptions();
             this.fetchRecords();
+            this.readOnly = false;
         }]);
 })(window.angular);
