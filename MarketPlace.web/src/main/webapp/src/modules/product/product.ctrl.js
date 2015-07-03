@@ -1,14 +1,14 @@
 (function (ng) {
     var mod = ng.module('productModule');
 
-    mod.controller('productCtrl', ['$scope', 'productService', 'productModel', 'itemService', 'shoppingCartService', '$modal','$location', function ($scope, svc, model, svcItem, svcShoppingCart, $modal, $location) {
+    mod.controller('productCtrl', ['$scope', 'productService', 'productModel', 'itemService', 'shoppingCartService', '$modal', '$location', function ($scope, svc, model, svcItem, svcShoppingCart, $modal, $location) {
             svc.extendController(this, $scope, model, 'product', 'Product');
             this.fetchRecords(); // Consulta todos los records de la entidad Producto
             this.readOnly = false; // Habilita el uso de solo lectura (No permite crear nuevas entidades en el toolbar)
             var self = this;
+            var modalTemplate = 'src/modules/product/templates/modal.html';
             $scope.currentRecord;
-            $scope.shopcars;
-            $scope.shoppingCart = {id: 1, name: "The Client Car"};
+            $scope.shoppingCart = {name: "The Client Car"};
 
             $scope.addToCar = function (currentRecord) {
                 $scope.currentRecord = currentRecord;
@@ -18,14 +18,14 @@
 
             this.addToCartList = function () {
                 alert('Go to Shopping Car');
-                 $location.path('/shoppingCart/master');
+                $location.path('/shoppingCart/master');
             };
 
             this.openModal = function (size) {
 
                 var modalInstance = $modal.open({
                     animation: $scope.animationsEnabled,
-                    templateUrl: 'src/modules/product/templates/modal.html',
+                    templateUrl: modalTemplate,
                     size: size,
                     controller: 'modalAddCarCtrl',
                     resolve: {
@@ -37,15 +37,27 @@
 
                 modalInstance.result.then(function (result) {
                     var shoppingCar;
-                    var shoppingCarList = svcShoppingCart.fetchRecords();
-                    shoppingCar = $scope.shoppingCart;
-                    var item = {
-                        name: result.name,
-                        quantity: result.quantity,
-                        product: $scope.currentRecord,
-                        shoppingCart: shoppingCar
-                    };
-                    svcItem.saveRecord(item);
+                    svcShoppingCart.fetchRecords().then(function (data) {
+                        if (data.length > 0) {
+                            shoppingCar = {id: data[0].id, name: data[0].name};
+                            addToCar();
+                        } else {
+                            svcShoppingCart.saveRecord($scope.shoppingCart).then(function (data) {
+                                shoppingCar = {id: data.id, name: data.name};
+                                addToCar();
+                            });
+                        }
+                        var addToCar = function () {
+                            var item = {
+                                name: result.name,
+                                quantity: result.quantity,
+                                product: $scope.currentRecord,
+                                shoppingCart: shoppingCar
+                            };
+                            svcItem.saveRecord(item);
+                            alert('Added to Shopping Cart');
+                        };
+                    });
                 });
             };
 
@@ -63,8 +75,8 @@
                     return true;
                 }
             });
-            
-            
+
+
         }]);
 
     mod.controller('modalAddCarCtrl', ['$scope', '$modalInstance', 'currentRecord', function ($scope, $modalInstance, currentRecord) {
