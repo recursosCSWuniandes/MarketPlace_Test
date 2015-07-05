@@ -81,8 +81,8 @@
                 scope.records = [];
 
                 //Variables de paginacion
-                this.maxSize = 5;
-                this.itemsPerPage = 5;
+                this.maxSize = 6;
+                this.itemsPerPage = 6;
                 this.totalItems = 0;
                 this.currentPage = 1;
 
@@ -212,6 +212,9 @@
                 };
                 this.deleteRecord = function (record) {
                     return record.remove();
+                };
+                this.copyRecord = function (record){
+                    return  RestAngular.copy(record);
                 };
                 this.extendController = function (ctrl, scope, model, name, displayName) {
                     extendCtrl.call(ctrl, scope, model, this, name, displayName);

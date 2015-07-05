@@ -1,4 +1,4 @@
-(function (ng) {
+(function(ng) {
     var mod = ng.module('itemModule', ['CrudModule']);
 
     mod.constant('itemContext', 'items');
@@ -27,13 +27,14 @@
             displayName: 'Quantity',
             type: 'Integer',
             required: true
-        }, {
-            name: 'subTotal',
-            displayName: 'SubTotal',
-            type: 'Computed',
-            fn: function (record) {
-                return (record.quantity * record.product.id);
-            }
         }
+//        , {
+//            name: 'subTotal',
+//            displayName: 'SubTotal',
+//            type: 'Computed',
+//            fn: function (record) {
+//                return (record.quantity * record.product.id);
+//            }
+//        }
     ]);
 })(window.angular);

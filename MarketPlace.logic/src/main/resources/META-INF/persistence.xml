@@ -2,18 +2,18 @@
 <persistence version="2.0" xmlns="http://java.sun.com/xml/ns/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://java.sun.com/xml/ns/persistence http://java.sun.com/xml/ns/persistence/persistence_2_0.xsd">
     <persistence-unit name="MarketPlacePU" transaction-type="JTA">
         <provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
-        <!--<jta-data-source>java:app/jdbc/MarketPlace</jta-data-source>-->
+        <jta-data-source>java:app/jdbc/MarketPlace</jta-data-source>
     
         <properties>
             <property name="eclipselink.logging.level" value="FINE"/>
             <property name="eclipselink.ddl-generation" value="create-or-extend-tables"/>
-            <property name="eclipselink.cache.type.default" value="Weak" />
+<!--            <property name="eclipselink.cache.type.default" value="Weak" />
             <property name="javax.persistence.jdbc.driver" value="org.postgresql.Driver"/>  
             <property name="javax.persistence.jdbc.user" value="smhracgzqicoqe"/> 
             <property name="javax.persistence.jdbc.password" value="GBJfM_athz1OjjAc2uVHLW_VBG"/>
             <property name="javax.persistence.jdbc.url" value="jdbc:postgresql://ec2-54-204-27-193.compute-1.amazonaws.com:5432/dbsclc4qegjlaj?ssl=true&amp;sslfactory=org.postgresql.ssl.NonValidatingFactory"/>
             <property name="eclipselink.logging.level" value="FINE"/>
-            <property name="javax.persistence.schema-generation.database.action" value="create-tables"/>
+            <property name="javax.persistence.schema-generation.database.action" value="create-tables"/>-->
         </properties>
     </persistence-unit>
 </persistence>

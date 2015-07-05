@@ -19,7 +19,7 @@
                     controllerAs: crudCtrl
                 })
                 .when('/item', {
-                    templateUrl: crudTpl,
+                    templateUrl: 'src/modules/item/templates/ShoppingCart.html',
                     controller: 'itemCtrl',
                     controllerAs: crudCtrl
                 })
