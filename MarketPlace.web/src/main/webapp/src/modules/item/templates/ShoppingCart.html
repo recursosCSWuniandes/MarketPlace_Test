@@ -1,5 +1,5 @@
 <div>
-    <!--    <toolbar name="name" display-name="displayName" actions="ctrl.globalActions"></toolbar>-->
+    <toolbar name="name" display-name="displayName" actions="ctrl.globalActions"></toolbar>
     <div class="col-md-4">
         <h2>Shopping Cart</h2>
     </div>
@@ -10,7 +10,7 @@
         <list-records
             model="model"
             records="records"
-            actions="ctrl.recordActions">
+            >
         </list-records>    
     <pagination  total-items="ctrl.totalItems" ng-model="ctrl.currentPage" ng-change="ctrl.pageChanged()" items-per-page="ctrl.itemsPerPage" max-size="ctrl.maxSize" class="pagination-sm" boundary-links="true" rotate="false"></pagination>
     <div  ng-show="ctrl.editMode" class="well" >
